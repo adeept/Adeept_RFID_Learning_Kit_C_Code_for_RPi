@@ -2,7 +2,7 @@
 -----------------------------------------------------------------------------
 
 #### About this kit:
-This is an RFID learning kit for Raspberry Pi. An RC522 RFID module, some common electronic components and sensors are included. Through the learning, you will get a better understanding of RFID and Raspberry Pi, and then you will be able to make fascinating works based on Raspberry Pi.
+This is an RFID learning kit for Raspberry Pi. An RC522 RFID module, some common electronic components and sensors are included. We provide a user manual(64 pages PDF) for your learning. Through the learning, you will get a better understanding of RFID and Raspberry Pi, and then you will be able to make fascinating works based on Raspberry Pi.
 
 -----------------------------------------------------------------------------
 #### About Adeept:
