@@ -1,15 +1,15 @@
 /*
-* File name   : blinkingLed.c
-* Description : Make an led blinking.
+* File name   : relay.c
+* Description : toggle a relay.
 * Website     : www.adeept.com
 * E-mail      : support@adeept.com
 * Author      : Jason
-* Date        : 2015/05/02
+* Date        : 2015/06/21
 */
 #include <wiringPi.h>
 #include <stdio.h>
 
-#define  LedPin    0
+#define  RelayPin    0
 
 int main(void)
 {
@@ -18,15 +18,15 @@ int main(void)
 		return -1; 
 	}
 	
-	pinMode(LedPin, OUTPUT);
+	pinMode(RelayPin, OUTPUT);
 
 	while(1){
-		digitalWrite(LedPin, LOW);   //led on
-		printf("led on...\n");
-		delay(500);
-		digitalWrite(LedPin, HIGH);  //led off
+		digitalWrite(RelayPin, LOW);   //close
+		printf("close...\n");
+		delay(1000);
+		digitalWrite(RelayPin, HIGH);  //open
 		printf("...led off\n");
-		delay(500);
+		delay(1000);
 	}
 
 	return 0;
