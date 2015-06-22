@@ -24,7 +24,7 @@ void sysInit(void)
 {
 	int i;
 
-	for(i=0;i<12;i++){
+	for(i = 0; i < 12; i++){
 		pinMode(i, OUTPUT);
 		digitalWrite(i, HIGH);
 	}	
@@ -42,7 +42,7 @@ void display(void)
 {
 	int i;
 
-	for(i=0;i<100;i++){
+	for(i = 0;i < 100; i++){
 		digitalWrite(Bit0, 0);
 		digitalWrite(Bit1, 1);
 		digitalWrite(Bit2, 1);
