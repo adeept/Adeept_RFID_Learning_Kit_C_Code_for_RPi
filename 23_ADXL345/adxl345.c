@@ -40,17 +40,17 @@ int main(int argc, char *argv[])
 	usleep(100000);
 
 	while(1){
-		fprintf(stderr,"x:%f\n", axis_sample(X_REG,fd) / 128.0); // X
-		fprintf(stderr,"y:%f\n", axis_sample(Y_REG, fd) / 128.0); // Y	
-		fprintf(stderr,"z:%f\n\n", axis_sample(Z_REG,fd) / 128.0); // Z
+		fprintf(stderr,"x:%f\n",axis_sample(X_REG,fd) / 128.0); // X
+		fprintf(stderr,"y:%f\n",axis_sample(Y_REG, fd) / 128.0); // Y	
+		fprintf(stderr,"z:%f\n\n",axis_sample(Z_REG,fd) / 128.0); // Z
 		usleep(100000);
 	}
 
 	return 0;
 }
 
-short int axis_sample(int axis,int fd){
-
+short int axis_sample(int axis,int fd)
+{
 	short int data = 0;
 	short int data2 = 0;
 
@@ -58,7 +58,6 @@ short int axis_sample(int axis,int fd){
 	data  =  wiringPiI2CReadReg8(fd,axis);
 	data2 =  wiringPiI2CReadReg8(fd,axis+1); 
 	
-	return ( (data2<<8)|
 	return ( (data2<<8)|data );
 }
 
