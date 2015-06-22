@@ -11,24 +11,35 @@
 
 typedef unsigned char uchar;
 
-#define    ADC_CS    8
-#define    ADC_DIO   9
-#define    ADC_CLK  10
-
-const int ledNum[] = {0xfe,0xfc,0xf8,0xf0,0xe0,0xc0,0x80,0x00};
+#define    ADC_CS    10
+#define    ADC_DIO   11
+#define    ADC_CLK   12
 
 void ledBarInit(void)
 {
 	int i;
 
-	for(i = 0; i < 8; i++){
+	for(i = 0; i < 10; i++){
 		pinMode(i, OUTPUT); //set pin0~7 as output mode
 	}
 }
 
-void ledBarCtrl(int n)
+int ledBarCtrl(int n)
 {
-	digitalWriteByte(ledNum[n]);	
+	int i;
+	
+	if(n > 10 || n < 0){
+		printf("Wrong argument, n = [0~10]\n");
+		return -1;
+	}
+
+	for(i = 0; i < n; i++){
+		digitalWrite(i, LOW);	
+	}
+
+	for(i = 0; i < 10-n; i++){
+		digitalWrite(n+i, HIGH);
+	}
 }
 
 int map(int x, int in_min, int in_max, int out_min, int out_max)     
@@ -36,12 +47,14 @@ int map(int x, int in_min, int in_max, int out_min, int out_max)
 	return (x -in_min) * (out_max - out_min) / (in_max - in_min) + out_min;  
 }  
 
-int get_ADC_Result(void)
+uchar get_ADC_Result(void)
 {
 	//10:CH0
 	//11:CH1
 	uchar i;
 	uchar dat1=0, dat2=0;
+		
+	pinMode(ADC_DIO, OUTPUT);
 
 	digitalWrite(ADC_CS, 0);
 
@@ -100,11 +113,10 @@ int main(void)
 	ledBarInit();
 
 	while(1){
-		pinMode(ADC_DIO, OUTPUT);
 		analogVal = get_ADC_Result();
 		printf("analog value : %d\n", analogVal);
-		printf("current voltage : %d\n", analogVal/255.0*5);
-		num = map(analogVal, 0, 255, 0, 8);
+		printf("current voltage : %.2fV\n", (analogVal/255.0)*5);
+		num = map(analogVal, 0, 255, 0, 10);
 		ledBarCtrl(num);
 		delay(200);
 	}
