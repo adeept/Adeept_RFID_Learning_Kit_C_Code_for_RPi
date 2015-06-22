@@ -24,6 +24,8 @@ uchar get_ADC_Result(uchar xyVal)
 	uchar i;
 	uchar dat1=0, dat2=0;
 
+	pinMode(ADC_DIO, OUTPUT);
+	
 	digitalWrite(ADC_CS, 0);
 
 	digitalWrite(ADC_CLK,0);
@@ -86,22 +88,22 @@ int main(void)
 	pullUpDnControl(JoyStick_SW, PUD_UP);
 
 	while(1){
-		pinMode(ADC_DIO, OUTPUT);
-
 		xVal = get_ADC_Result('x');
+		printf("%d\n", xVal);
+		delay(100);
 		if(xVal == 0){
-			tmp = 1; //up	
+			tmp = 1;	
 		}
 		if(xVal == 255){
-			tmp = 2; //down
+			tmp = 2;
 		}
 
 		yVal = get_ADC_Result('y');
 		if(yVal == 0){
-			tmp = 3; //left
+			tmp = 3;
 		}
 		if(yVal == 255){
-			tmp = 4; //right
+			tmp = 4;
 		}
 
 		zVal = digitalRead(JoyStick_SW);
@@ -109,12 +111,11 @@ int main(void)
 			printf("Button is pressed !\n");
 		}
 
-		//printf("x : %d   y : %d   z : %d\n", xVal, yVal, zVal);
 		switch(tmp){
-			case 1: printf("up\n"); break;
-			case 2: printf("down\n"); break;
-			case 3: printf("right\n"); break;
-			case 4: printf("left\n"); break;
+			case 1: printf("dowm\n"); break;
+			case 2: printf("up\n"); break;
+			case 3: printf("left\n"); break;
+			case 4: printf("right\n"); break;
 			default:
 					break;
 		}
