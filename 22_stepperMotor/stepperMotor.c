@@ -59,10 +59,11 @@ void backward(int t, int steps)
 	}  
 }  
 
-int main(void) {  
-	if (-1 == wiringPiSetup()) {  
-		printf("Setup wiringPi failed!");  
-		return 1;  
+int main(void) 
+{  
+	if (wiringPiSetup() < 0) {  
+		printf("Setup wiringPi failed!\n");  
+		return -1;  
 	}  
 
 	/* set pins mode as output */  
