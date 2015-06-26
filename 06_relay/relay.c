@@ -9,7 +9,7 @@
 #include <wiringPi.h>
 #include <stdio.h>
 
-#define  RelayPin    0
+#define  RelayPin    1
 
 int main(void)
 {
