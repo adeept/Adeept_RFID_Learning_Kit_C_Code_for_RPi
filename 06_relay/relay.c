@@ -25,7 +25,7 @@ int main(void)
 		printf("close...\n");
 		delay(1000);
 		digitalWrite(RelayPin, HIGH);  //open
-		printf("...led off\n");
+		printf("...open\n");
 		delay(1000);
 	}
 
