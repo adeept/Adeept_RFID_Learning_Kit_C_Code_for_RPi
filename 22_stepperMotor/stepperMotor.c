@@ -74,14 +74,14 @@ int main(void)
 
 	while (1){  
 		printf("forward...\n");  
-		forward(3, 256);      
+		forward(3, 512);      
 
 		printf("stop...\n");  
 		stop();  
 		delay(2000);       // 2s  
 
 		printf("backward...\n");  
-		backward(3, 512);  // 512 steps ---- 360 angle    
+		backward(3, 256);  // 512 steps ---- 360 angle    
 
 		printf("stop...\n");  
 		stop();  

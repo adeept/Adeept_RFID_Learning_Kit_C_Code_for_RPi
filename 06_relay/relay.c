@@ -9,7 +9,7 @@
 #include <wiringPi.h>
 #include <stdio.h>
 
-#define  RelayPin    1
+#define  RelayPin  1
 
 int main(void)
 {
@@ -21,10 +21,10 @@ int main(void)
 	pinMode(RelayPin, OUTPUT);
 
 	while(1){
-		digitalWrite(RelayPin, LOW);   //close
+		digitalWrite(RelayPin, 0);   //close
 		printf("close...\n");
 		delay(1000);
-		digitalWrite(RelayPin, HIGH);  //open
+		digitalWrite(RelayPin, 1);  //open
 		printf("...open\n");
 		delay(1000);
 	}
