@@ -21,6 +21,8 @@ int main(void)
          
     pinMode(LedPin, OUTPUT);
     pinMode(TiltPin, INPUT);
+
+	pullUpDnControl(TiltPin, PUD_UP);
      
     while(1){
     	if(digitalRead(TiltPin) == 0){
