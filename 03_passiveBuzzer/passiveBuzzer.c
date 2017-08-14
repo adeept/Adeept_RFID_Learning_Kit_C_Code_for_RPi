@@ -9,7 +9,7 @@
 #include <softTone.h>
 #include <stdio.h>
 
-#define  BZRPin  0
+#define  BZRPin  1
 
 int main(void)
 {
