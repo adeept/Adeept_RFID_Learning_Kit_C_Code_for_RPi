@@ -9,7 +9,7 @@
 #include <wiringPi.h>
 #include <stdio.h>
 
-#define BeepPin 0
+#define BeepPin  1
 
 int main(void)
 {
