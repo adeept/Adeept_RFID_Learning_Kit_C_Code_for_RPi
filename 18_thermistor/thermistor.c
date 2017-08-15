@@ -1,5 +1,5 @@
 /*
- * File name   : photoresistance.c
+ * File name   : thermistor.c
  * Description : convert the analog value to a number.
  * Website     : www.adeept.com
  * E-mail      : support@adeept.com
