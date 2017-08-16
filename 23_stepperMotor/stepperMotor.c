@@ -74,7 +74,7 @@ int main(void)
 
 	while (1){  
 		printf("forward...\n");  
-		forward(3, 512);      
+		forward(2, 512);      
 
 		printf("stop...\n");  
 		stop();  
