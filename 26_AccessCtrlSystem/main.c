@@ -5,6 +5,8 @@
 #include <getopt.h>
 #include <stdlib.h>
 #include "mfrc522.h"
+#include "led.h"
+#include "buzzer.h"
 #define DISP_COMMANDLINE()	printf("RC522>")
 
 uint8_t Card1[4] = {150, 110, 1, 164}; 
@@ -26,6 +28,9 @@ int main(int argc, char **argv) {
 	}
 
 	printf("User Space RC522 Application\r\n");
+
+	buzzerInit();
+	ledInit();
 
 	while (1) {
 		/*Main Loop Start*/
@@ -119,10 +124,14 @@ int tag_select(uint8_t *CardID) {
 	// 
 	if (CardID[0] == Card1[0] && CardID[1] == Card1[1] && CardID[2] == Card1[2] && CardID[3] == Card1[3]){
 		printf("\n ----------Welcom, Jason :> -----------------\n\n");	
+		ledFlash(3);
+		buzzer(3);
 	}
 	
 	if (CardID[0] == Card2[0] && CardID[1] == Card2[1] && CardID[2] == Card2[2] && CardID[3] == Card2[3]){
 		printf("\n ----------Welcom, Lucy :> -----------------\n\n");	
+		ledFlash(3);
+		buzzer(3);
 	}
 	//
 

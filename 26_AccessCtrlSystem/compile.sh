@@ -1,4 +1,4 @@
 #!/bin/sh
 
-gcc *.c -o test
+gcc *.c -o test -lwiringPi
 echo "completed!"
